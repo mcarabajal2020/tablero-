@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pizarra;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
+use App\Models\Noticia;
 
 class PizarraController extends Controller
 {
@@ -23,6 +24,14 @@ class PizarraController extends Controller
                 : null;
         });
 
-        return view('pizarra.index', compact('pizarras', 'dolar'));
+        //Noticias Manuales
+        $noticias = Noticia::where('publicada', true)
+            ->orderBy('fecha', 'desc')
+            ->take(3)
+            ->get();
+
+        return view('pizarra.index', compact('pizarras', 'dolar', 'noticias'));
+
+        
     }
 }

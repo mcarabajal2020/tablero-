@@ -79,12 +79,27 @@
 
     {{-- TARJETA 4 – CRUD FUTURO --}}
     <div class="card">
-        <h2>Noticias Agro</h2>
-        <div class="card-content">
-            Próximamente<br>
-            Noticias destacadas
-        </div>
+    <h2>Noticias Cereales</h2>
+
+    <div class="card-content">
+        @forelse ($noticias as $noticia)
+            <div class="noticia-item">
+                <div class="noticia-titulo">
+                    {{ $noticia->titulo }}
+                </div>
+                <div class="noticia-resumen">
+                    {{ $noticia->resumen }}
+                </div>
+                <div class="noticia-resumen">
+                    {{ $noticia->fecha }}
+                </div>
+            </div>
+        @empty
+            <p>No hay noticias cargadas.</p>
+        @endforelse
     </div>
+</div>
+
 
 </div>
 
