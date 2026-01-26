@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Tablero Agro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="300">
+    
 
     <style>
         body {
@@ -66,6 +68,20 @@
             font-weight: bold;
             margin-top: 10px;
             color: #2c7be5;
+        }
+
+        .noticia-item {
+            text-align: center;
+        }
+
+        .noticia-titulo {
+            font-size: clamp(14px, 1.4vw, 16px);
+            font-weight: bold;
+        }
+
+        .noticia-resumen {
+            font-size: clamp(12px, 1.2vw, 14px);
+            opacity: 0.85;
         }
     </style>
 </head>

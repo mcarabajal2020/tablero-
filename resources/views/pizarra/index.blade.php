@@ -35,13 +35,28 @@
     </div>
 
     {{-- TARJETA 2 – CRUD FUTURO --}}
-    <div class="card">
-        <h2>Mercado Futuro</h2>
-        <div class="card-content">
-            Próximamente<br>
-            Datos de contratos, vencimientos, etc.
-        </div>
+    <div class="card ">
+    <h2 class="">MATBA</h2>
+
+    <div class="card-contente">
+        @foreach ($matbas as $m)
+            <div class="">
+                <span class="noticia-titulo ">
+                    {{ $m->producto_contrato }}
+                </span>
+
+                <div class="noticia-resumen">
+                    <span>Compra: usd{{ number_format($m->precio_compra, 2) }}</span>
+                    <span>Venta: usd{{ number_format($m->precio_venta, 2) }}</span>
+                </div>
+
+                <div class="noticia-titulo">
+                    usd{{ number_format($m->precio, 2) }}
+                </div>
+            </div>
+        @endforeach
     </div>
+</div>
 
     {{-- TARJETA 3 – CRUD FUTURO --}}
     <div class="card">

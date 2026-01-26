@@ -6,13 +6,16 @@ use App\Models\Pizarra;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Noticia;
+use App\Models\Matba;
 
 class PizarraController extends Controller
 {
     public function index()
     {
         // Datos del CRUD Pizarra
-        $pizarras = Pizarra::orderBy('cereal')->get();
+        $pizarras = Pizarra::orderBy('cereal')
+        ->take(4)
+        ->get();
 
         // Dólar oficial (cacheado 5 minutos)
         $dolar = Cache::remember('dolar_oficial', 300, function () {
@@ -30,7 +33,9 @@ class PizarraController extends Controller
             ->take(3)
             ->get();
 
-        return view('pizarra.index', compact('pizarras', 'dolar', 'noticias'));
+        $matbas = Matba::latest()->take(6)->get();
+
+        return view('pizarra.index', compact('pizarras', 'dolar', 'noticias', 'matbas'));
 
         
     }
