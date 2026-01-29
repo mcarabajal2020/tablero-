@@ -62,34 +62,23 @@
     <div class="card">
     <h2>Tipo de Cambio</h2>
 
-    <div class="card-content">
-        @if ($dolar && isset($dolar['venta']))
-            <strong>{{ $dolar['nombre'] ?? 'Dólar Oficial' }}</strong><br><br>
+    @php
+    $dolar = \App\Models\Dolar::where('tipo', 'mayorista')->first();
+    @endphp
 
-            <div>
-                Compra
-                <div class="precio">
-                    $ {{ number_format($dolar['compra'], 2, ',', '.') }}
-                </div>
-            </div>
+<div class="card">
+    <h3>Dólar Mayorista</h3>
 
-            <div>
-                Venta
-                <div class="precio">
-                    $ {{ number_format($dolar['venta'], 2, ',', '.') }}
-                </div>
-            </div>
-
-            @if (isset($dolar['fechaActualizacion']))
-                <small>
-                    Actualizado:
-                    {{ \Carbon\Carbon::parse($dolar['fechaActualizacion'])->format('d/m/Y H:i') }}
-                </small>
-            @endif
-        @else
-            <p>No hay datos de cotización disponibles.</p>
-        @endif
-    </div>
+    @if ($dolar)
+        <p>Compra: ${{ number_format($dolar->compra, 2, ',', '.') }}</p>
+        <p>Venta: ${{ number_format($dolar->venta, 2, ',', '.') }}</p>
+        <small>
+            Actualizado: {{ $dolar->actualizado_api->format('d/m/Y H:i') }}
+        </small>
+    @else
+        <p class="text-muted">Sin datos disponibles</p>
+    @endif
+</div>
 </div>
 
     {{-- TARJETA 4 – CRUD FUTURO --}}

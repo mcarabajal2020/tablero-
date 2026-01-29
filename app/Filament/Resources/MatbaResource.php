@@ -62,6 +62,12 @@ class MatbaResource extends Resource
             Tables\Columns\TextColumn::make('precio_venta')
                 ->label('Venta')
                 ->money('ARS'),
+        ]) ->actions([
+            Tables\Actions\EditAction::make(),
+            Tables\Actions\DeleteAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
         ])
         ->defaultSort('created_at', 'desc');
     }
