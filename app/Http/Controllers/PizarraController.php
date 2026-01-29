@@ -20,7 +20,7 @@ class PizarraController extends Controller
         // Dólar oficial (cacheado 5 minutos)
         $dolar = Cache::remember('dolar_oficial', 300, function () {
             $response = Http::timeout(5)
-                ->get('https://dolarapi.com/v1/dolares/oficial');
+                ->get('https://dolarapi.com/v1/dolares/mayorista');
 
             return $response->successful()
                 ? $response->json()
