@@ -66,12 +66,22 @@
     $dolar = \App\Models\Dolar::where('tipo', 'mayorista')->first();
     @endphp
 
-<div class="card">
+<div class="card-content">
     <h3>Dólar Mayorista</h3>
 
     @if ($dolar)
-        <p>Compra: ${{ number_format($dolar->compra, 2, ',', '.') }}</p>
-        <p>Venta: ${{ number_format($dolar->venta, 2, ',', '.') }}</p>
+        <div>
+           <strong> Compra:</strong>
+                <div class="precio">
+                    ${{ number_format($dolar->compra, 2, ',', '.') }}
+                </div> 
+        
+           <strong> Venta: </strong> 
+                <div class="precio">
+                ${{ number_format($dolar->venta, 2, ',', '.') }}
+                </div>
+            
+        </div>  
         <small>
             Actualizado: {{ $dolar->actualizado_api->format('d/m/Y H:i') }}
         </small>
