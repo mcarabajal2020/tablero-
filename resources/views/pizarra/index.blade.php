@@ -68,23 +68,24 @@
 
 <div class="card">
     <h3>Dólar Mayorista</h3>
-    <div class="card-content">
-    @if ($dolar)
-        <strong>Compra:</strong>
-        <div class="precio"> 
-            ${{ number_format($dolar->compra, 2, ',', '.') }}
-        </div>
-        <strong>Venta: </strong>
-        <div class="precio">
-             ${{ number_format($dolar->venta, 2, ',', '.') }}
-        </div>
-        <small>
-            Actualizado: {{ $dolar->actualizado_api->format('d/m/Y H:i') }}
-        </small>
-    </div>
-    @else
-        <p class="text-muted">Sin datos disponibles</p>
-    @endif
+        <div class="card-content">
+            @if ($dolar)
+                <strong>Compra:</strong>
+                <div class="precio"> 
+                    ${{ number_format($dolar->compra, 2, ',', '.') }}
+                </div>
+                <strong>Venta: </strong>
+                <div class="precio">
+                    ${{ number_format($dolar->venta, 2, ',', '.') }}
+                </div>
+                <small>
+                    Actualizado: {{ $dolar->actualizado_api->format('d/m/Y H:i') }}
+                </small>
+            
+            @else
+                <p class="text-muted">Sin datos disponibles</p>
+            @endif
+         </div>
 </div>
 </div>
 
