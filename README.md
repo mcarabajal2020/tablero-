@@ -40,8 +40,8 @@ El sistema está diseñado para mostrarse en pantallas (TV / monitor) y se enfoc
 ### 1️⃣ Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio
+git clone https://github.com/mcarabajal2020/tablero-.git
+cd tablero-
 
 2️⃣ Instalar dependencias
 composer install
@@ -82,7 +82,7 @@ php artisan make:filament-user
 💱 Actualización automática del dólar mayorista
 
 La cotización del dólar NO se consulta en tiempo real desde la vista.
-Se obtiene desde una API externa y se almacena en base de datos mediante un comando programado.
+Se obtiene desde una API externa(https://dolarapi.com/ y toma cotizacion mayorista) y se almacena en base de datos mediante un comando programado.
 
 ▶️ Ejecutar manualmente
 php artisan dolar:actualizar
