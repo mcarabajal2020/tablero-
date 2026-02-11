@@ -72,11 +72,11 @@
             @if ($dolar)
                 <strong>Compra:</strong>
                 <div class="precio"> 
-                    ${{ number_format($dolar->compra, 2, ',', '.') }}
+                ${{ number_format($dolar->compra, 2) }}
                 </div>
                 <strong>Venta: </strong>
                 <div class="precio">
-                    ${{ number_format($dolar->venta, 2, ',', '.') }}
+                    ${{ number_format($dolar->venta, 2) }}
                 </div>
                 <small>
                     Actualizado: {{ $dolar->actualizado_api->format('d/m/Y H:i') }}

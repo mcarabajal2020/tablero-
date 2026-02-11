@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Noticia;
 use App\Models\Matba;
+use App\Models\Dolar;
 
 class PizarraController extends Controller
 {
@@ -18,14 +19,16 @@ class PizarraController extends Controller
         ->get();
 
         // Dólar oficial (cacheado 5 minutos)
-        $dolar = Cache::remember('dolar_oficial', 300, function () {
-            $response = Http::timeout(5)
-                ->get('https://dolarapi.com/v1/dolares/mayorista');
 
-            return $response->successful()
-                ? $response->json()
-                : null;
-        });
+        $dolar = Dolar::where('tipo', 'mayorista')->first();
+      //  $dolar = Cache::remember('dolar_oficial', 300, function () {
+        //    $response = Http::timeout(5)
+        //        ->get('https://dolarapi.com/v1/dolares/mayorista');
+
+ //           return $response->successful()
+ //               ? $response->json()
+ //               : null;
+ //       });
 
         //Noticias Manuales
         $noticias = Noticia::where('publicada', true)
