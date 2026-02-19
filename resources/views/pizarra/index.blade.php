@@ -4,13 +4,16 @@
 
 {{-- COLUMNA IZQUIERDA --}}
 <div class="left">
-    <iframe 
-        src="https://www.youtube.com/embed/Aq2zWchTUc0?autoplay=1&mute=1&loop=1&playlist=Aq2zWchTUc0"
-        title="YouTube video"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen>
-    </iframe>
+    @if($embedUrl)
+        <iframe
+            width="100%"
+            height="100%"
+            src="{{ $embedUrl }}"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
+    @endif
 </div>
 
 {{-- COLUMNA DERECHA --}}

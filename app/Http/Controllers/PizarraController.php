@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\Noticia;
 use App\Models\Matba;
 use App\Models\Dolar;
+use App\Models\Configuracion;
 
 class PizarraController extends Controller
 {
@@ -38,7 +39,31 @@ class PizarraController extends Controller
 
         $matbas = Matba::latest()->take(6)->get();
 
-        return view('pizarra.index', compact('pizarras', 'dolar', 'noticias', 'matbas'));
+        $youtubeUrl = Configuracion::where('clave', 'youtube_url')
+    ->value('valor');
+
+$embedUrl = null;
+
+if ($youtubeUrl) {
+
+    preg_match('/(?:v=|youtu\.be\/)([^&]+)/', $youtubeUrl, $matches);
+
+    $videoId = $matches[1] ?? null;
+
+    if ($videoId) {
+        $embedUrl = "https://www.youtube.com/embed/{$videoId}"
+            . "?autoplay=1"
+            . "&mute=1"
+            . "&loop=1"
+            . "&playlist={$videoId}"
+            . "&controls=0"
+            . "&rel=0"
+            . "&modestbranding=1"
+            . "&playsinline=1";
+    }
+}
+
+        return view('pizarra.index', compact('pizarras', 'dolar', 'noticias', 'matbas','embedUrl'));
 
         
     }
