@@ -4,6 +4,9 @@ Aplicación web desarrollada con **Laravel + Filament** pensada para visualizar 
 
 El sistema está diseñado para mostrarse en pantallas (TV / monitor) y se enfoca en **robustez**, **simplicidad** y **tolerancia a fallos**, evitando dependencias directas con servicios externos en tiempo real.
 
+<img width="1898" height="852" alt="image" src="https://github.com/user-attachments/assets/5c6b3c93-cd18-4f32-9be7-d51e6abad9f0" />
+
+
 ---
 
 ## 🚀 Características principales
