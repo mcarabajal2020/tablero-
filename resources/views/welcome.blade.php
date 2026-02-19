@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Tablero Agro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="300">
+  
     
 
     <style>
@@ -92,4 +92,14 @@
 </div>
 
 </body>
+<script>
+    setInterval(() => {
+        fetch('/datos-refresh')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('datos-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error actualizando datos:', error));
+    }, 60000); // cada 60 segundos
+</script>
 </html>
